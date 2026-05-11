@@ -1,5 +1,10 @@
 from src.board import Board
 from src.logic import Logic
+from src.mark import Mark
+
+X = Mark.HUMAN
+O = Mark.AI
+E = Mark.EMPTY
 
 
 def make_logic(cells):
@@ -9,25 +14,22 @@ def make_logic(cells):
     return Logic(board)
 
 
-E = " "
-
-
 # check_winner
 
 
 def test_check_winner_x_top_row():
-    logic = make_logic(["X", "X", "X", E, E, E, E, E, E])
-    assert logic.check_winner() == "X"
+    logic = make_logic([X, X, X, E, E, E, E, E, E])
+    assert logic.check_winner() == X
 
 
 def test_check_winner_o_middle_row():
-    logic = make_logic([E, E, E, "O", "O", "O", E, E, E])
-    assert logic.check_winner() == "O"
+    logic = make_logic([E, E, E, O, O, O, E, E, E])
+    assert logic.check_winner() == O
 
 
 def test_check_winner_x_diagonal():
-    logic = make_logic(["X", E, E, E, "X", E, E, E, "X"])
-    assert logic.check_winner() == "X"
+    logic = make_logic([X, E, E, E, X, E, E, E, X])
+    assert logic.check_winner() == X
 
 
 def test_check_winner_none():
@@ -39,7 +41,7 @@ def test_check_winner_none():
 
 
 def test_get_winning_line_returns_triple():
-    logic = make_logic(["X", "X", "X", E, E, E, E, E, E])
+    logic = make_logic([X, X, X, E, E, E, E, E, E])
     assert logic.get_winning_line() == (0, 1, 2)
 
 
@@ -53,12 +55,12 @@ def test_get_winning_line_none():
 
 def test_is_draw_true():
     # no winner, full board
-    logic = make_logic(["X", "O", "X", "O", "X", "O", "O", "X", "O"])
+    logic = make_logic([X, O, X, O, X, O, O, X, O])
     assert logic.is_draw() is True
 
 
 def test_is_draw_false_winner():
-    logic = make_logic(["X", "X", "X", "O", "O", E, E, E, E])
+    logic = make_logic([X, X, X, O, O, E, E, E, E])
     assert logic.is_draw() is False
 
 
@@ -76,7 +78,7 @@ def test_is_valid_move_empty_cell():
 
 
 def test_is_valid_move_occupied_cell():
-    logic = make_logic(["X"] + [E] * 8)
+    logic = make_logic([X] + [E] * 8)
     assert logic.is_valid_move(0) is False
 
 
@@ -95,12 +97,12 @@ def test_get_empty_indices_all_empty():
 
 
 def test_get_empty_indices_none_empty():
-    logic = make_logic(["X"] * 9)
+    logic = make_logic([X] * 9)
     assert logic.get_empty_indices() == []
 
 
 def test_get_empty_indices_partial():
-    logic = make_logic(["X", E, "O", E, E, "X", E, E, "O"])
+    logic = make_logic([X, E, O, E, E, X, E, E, O])
     assert logic.get_empty_indices() == [1, 3, 4, 6, 7]
 
 
