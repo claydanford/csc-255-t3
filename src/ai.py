@@ -1,14 +1,7 @@
 import random
-from enum import Enum
 from src.board import Board
+from src.difficulty import Difficulty
 from src.logic import Logic
-
-
-class Difficulty(Enum):
-    EASY = "easy"
-    MEDIUM = "medium"
-    HARD = "hard"
-    IMPOSSIBLE = "impossible"
 
 
 class AI:
