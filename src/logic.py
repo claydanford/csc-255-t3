@@ -1,4 +1,5 @@
 from src.board import Board
+from src.mark import Mark
 
 
 class Logic:
@@ -12,8 +13,6 @@ class Logic:
         (0, 4, 8),  # top-left diagonal
         (2, 4, 6),  # top-right diagonal
     ]
-
-    EMPTY_MARK = " "
 
     def __init__(self, board: Board):
         self.board = board
@@ -39,7 +38,7 @@ class Logic:
             b_mark = self.board.get(b)
             c_mark = self.board.get(c)
 
-            if a_mark != self.EMPTY_MARK and a_mark == b_mark == c_mark:
+            if a_mark != Mark.EMPTY and a_mark == b_mark == c_mark:
                 return (a, b, c)
 
         return None
@@ -49,7 +48,7 @@ class Logic:
         Return True if the board is full and there is no winner.
         """
         return (
-            all(self.board.get(i) != self.EMPTY_MARK for i in range(9))
+            all(self.board.get(i) != Mark.EMPTY for i in range(9))
             and self.check_winner() is None
         )
 
@@ -57,10 +56,10 @@ class Logic:
         """
         Return True if index is in range and the cell is empty.
         """
-        return 0 <= index <= 8 and self.board.get(index) == self.EMPTY_MARK
+        return 0 <= index <= 8 and self.board.get(index) == Mark.EMPTY
 
     def get_empty_indices(self):
         """
         Return a list of all empty cell indices.
         """
-        return [i for i in range(9) if self.board.get(i) == self.EMPTY_MARK]
+        return [i for i in range(9) if self.board.get(i) == Mark.EMPTY]
