@@ -1,3 +1,6 @@
+from src.board import Board
+
+
 class Logic:
     WINNING_LINES = [
         (0, 1, 2),  # top row
@@ -12,7 +15,7 @@ class Logic:
 
     EMPTY_MARK = " "
 
-    def __init__(self, board):
+    def __init__(self, board: Board):
         self.board = board
 
     def check_winner(self):
