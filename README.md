@@ -55,23 +55,27 @@ Build a Tic Tac Toe game in Python. One human player (X) plays against an comput
 ## Difficulty modes
 
 - Easy: The computer randomly picks a cell
-- Medium: The computer randomly picks between a random cell and minimax cell
-- Hard: The computer always tries to win using minimax algorithm
+- Medium: The computer randomly picks between a random cell and minimax cell, with a 33% chance of random cell.
+- Hard: The computer randomly picks between a random cell and minimax cell, with a 66% chance of random cell.
+- Impossible: The computer always tries to win using minimax algorithm.
 
 ## Running the Program
 
-**Python:**
 ```bash
-python main.py
+python3 -m main
+# or
+uv run main.py
 ```
 
-**uv:**
+## Running Tests
+
 ```bash
-uv run main.py
+python3 -m tests.run_all
+# or
+uv run tests/run_all.py
 ```
 
 ## Authors
 
 - Clay Danford
 - Joel Porras
-- Zhen Li
