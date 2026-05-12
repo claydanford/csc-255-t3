@@ -15,8 +15,8 @@ def choose_difficulty():
     }
     print("Select difficulty:")
     print("1 - Easy       (AI plays randomly)")
-    print("2 - Medium     (67% random, 33% optimal)")
-    print("3 - Hard       (34% random, 66% optimal)")
+    print("2 - Medium     (66% random, 34% optimal)")
+    print("3 - Hard       (33% random, 67% optimal)")
     print("4 - Impossible (AI always plays optimally)")
 
     while True:
