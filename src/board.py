@@ -1,14 +1,16 @@
+from src.mark import Mark
+
 class Board:
     def __init__(self):
         self.cells = self._empty_cells()
 
     def _empty_cells(self):
-        return [" "] * 9
+        return [Mark.EMPTY] * 9
 
     def reset(self):
         self.cells = self._empty_cells()
 
-    def get(self, index):
+    def get(self, index: int):
         return self.cells[index]
 
     def set(self, index, value):
