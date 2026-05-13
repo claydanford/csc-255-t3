@@ -18,10 +18,11 @@ class Board:
         self.cells[index] = value
 
     def __str__(self):
+        c = [cell.value for cell in self.cells]
         return (
-            f" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} \n"
+            f" {c[0]} | {c[1]} | {c[2]} \n"
             "---+---+---\n"
-            f" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} \n"
+            f" {c[3]} | {c[4]} | {c[5]} \n"
             "---+---+---\n"
-            f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} "
+            f" {c[6]} | {c[7]} | {c[8]} "
         )
