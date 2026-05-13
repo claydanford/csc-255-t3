@@ -3,6 +3,10 @@ from src.mark import Mark
 
 
 class Logic:
+    """
+    Handles the game logic for checking winners, draws, valid moves
+    """
+
     WINNING_LINES = [
         (0, 1, 2),  # top row
         (3, 4, 5),  # middle row
