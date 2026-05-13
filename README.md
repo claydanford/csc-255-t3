@@ -15,7 +15,8 @@ python3 -m main
 
 uv run main.py
 
-# Select 1 for CLI or 2 for UI (Tkinter)
+# Select 1 for CLI
+# Select 2 for UI (a new window pops up on the desktop)
 ```
 
 ## Core Concepts
@@ -90,6 +91,8 @@ uv run main.py
 We built both a CLI and a Tkinter UI. They share the same `Game`, `Board`, `Logic`, and `AI` classes. The only difference is how moves are taken and how the board is displayed. `main.py` asks which interface you want at uses.
 
 The CLI was developed first since it is easier to test and debug. The UI was added without changing any core logic.
+
+The UI pops up in a new window on the desktop.
 
 ### How the classes fit together
 
