@@ -15,6 +15,7 @@ def main():
         elif choice == "2":
             import tkinter as tk
             from src.ui import UI
+
             print("Launching UI...")
             root = tk.Tk()
             UI(root)
