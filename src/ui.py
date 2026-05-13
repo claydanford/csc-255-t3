@@ -43,18 +43,18 @@ class UI:
 
         grid = tk.Frame(self.root)
         grid.pack()
-        for i in range(9):
-            r, c = divmod(i, 3)
-            btn = tk.Button(
-                grid,
-                text="",
-                width=4,
-                height=2,
-                font=("Arial", 24, "bold"),
-                command=lambda idx=i: self._on_cell_click(idx),
-            )
-            btn.grid(row=r, column=c)
-            self.buttons.append(btn)
+        for r in range(3):
+            for c in range(3):
+                i = r * 3 + c
+                btn = tk.Button(
+                    grid,
+                    text="",
+                    width=4,
+                    height=2,
+                    command=lambda idx=i: self._on_cell_click(idx),
+                )
+                btn.grid(row=r, column=c)
+                self.buttons.append(btn)
 
         tk.Button(self.root, text="Restart", command=self._restart).pack()
 
