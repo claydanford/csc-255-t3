@@ -5,6 +5,10 @@ from src.mark import Mark
 
 
 class UI:
+    """
+    UI for playing tic tac toe
+    """
+
     def __init__(self, root: tk.Tk):
         self.root = root
         self.root.title("Tic Tac Toe")
@@ -18,6 +22,10 @@ class UI:
         self._start_if_ai_first()
 
     def _build_ui(self):
+        """
+        Build the UI components.
+        """
+
         top = tk.Frame(self.root)
         top.pack()
         tk.Label(top, text="Difficulty:").pack(side=tk.LEFT)
@@ -33,7 +41,6 @@ class UI:
 
         tk.Label(self.root, textvariable=self.status).pack()
 
-        # Grid
         grid = tk.Frame(self.root)
         grid.pack()
         for i in range(9):
@@ -49,32 +56,51 @@ class UI:
             btn.grid(row=r, column=c)
             self.buttons.append(btn)
 
-        # Restart
         tk.Button(self.root, text="Restart", command=self._restart).pack()
 
         self._refresh_ui()
 
     def _on_cell_click(self, index: int):
+        """
+        Handle cell click events.
+        """
+
         if self.game.human_move(index):
             self._refresh_ui()
             if not self.game.game_over:
                 self._do_ai_move()
 
     def _do_ai_move(self):
+        """
+        AI moves and refresh UI.
+        """
+
         self.game.ai_move()
         self._refresh_ui()
 
     def _on_difficulty_change(self):
+        """
+        Change difficulty and restart the game.
+        """
+
         self.game.change_difficulty(Difficulty(self.difficulty.get()))
         self._refresh_ui()
         self._start_if_ai_first()
 
     def _restart(self):
+        """
+        Restart the game.
+        """
+
         self.game.restart()
         self._refresh_ui()
         self._start_if_ai_first()
 
     def _refresh_ui(self):
+        """
+        Update the UI based on the current game state.
+        """
+
         for i, btn in enumerate(self.buttons):
             mark = self.game.board.get(i)
             btn.configure(
@@ -97,5 +123,9 @@ class UI:
             )
 
     def _start_if_ai_first(self):
+        """
+        AI makes the first move
+        """
+
         if self.game.current == Mark.AI and not self.game.game_over:
             self._do_ai_move()
