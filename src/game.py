@@ -7,6 +7,9 @@ from src.difficulty import Difficulty
 
 
 class Game:
+    """
+    Manages game state
+    """
 
     def __init__(self, difficulty: Difficulty = Difficulty.EASY):
         self.difficulty = difficulty
