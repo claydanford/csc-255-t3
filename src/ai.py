@@ -28,13 +28,24 @@ class AI:
         """
         66% chance of playing randomly, 34% chance of playing optimally.
         """
-        pass  # TODO: implement medium move
+        chance = random.randint(1, 100)
+        
+        if chance <= 66:
+            return self._random_move()
+        
+        return self._minimax_move()
 
     def _hard_move(self):
         """
         33% chance of playing randomly, 67% chance of playing optimally.
         """
-        pass  # TODO: implement hard move
+        chance = random.randint(1, 100)
+
+        if chance <= 33:
+            return self._random_move()
+        
+        return self._minimax_move()
+
 
     def _impossible_move(self):
         """
