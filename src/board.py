@@ -1,5 +1,6 @@
 from src.mark import Mark
 
+
 class Board:
     def __init__(self):
         self.cells = self._empty_cells()
@@ -13,13 +14,15 @@ class Board:
     def get(self, index: int):
         return self.cells[index]
 
-    def set(self, index, value):
+    def set(self, index: int, value: Mark):
         self.cells[index] = value
 
     def __str__(self):
+        c = [cell.value for cell in self.cells]
         return (
-            f" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} \n"
+            f" {c[0]} | {c[1]} | {c[2]} \n"
             "---+---+---\n"
-            f" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} \n"
+            f" {c[3]} | {c[4]} | {c[5]} \n"
             "---+---+---\n"
-            f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} ")
+            f" {c[6]} | {c[7]} | {c[8]} "
+        )
