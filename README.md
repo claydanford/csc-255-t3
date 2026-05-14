@@ -133,3 +133,13 @@ uv run tests/run_all.py
 ### References
 - [Github Repo](https://github.com/claydanford/csc-255-t3)
 - [Github Project](https://github.com/users/claydanford/projects/1/views/1)
+
+## Possible Errors
+
+If running the project on MacOS and hitting the following error launching the UI, update python or use uv.
+
+```bash
+Launching UI...
+macOS 26 (2603) or later required, have instead 16 (1603) !
+[1]    19235 abort      python3 main.py
+```
